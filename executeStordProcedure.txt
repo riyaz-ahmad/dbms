@@ -1,0 +1,21 @@
+ local!AppianL1: executestoredprocedure(
+      "jdbc/AppianSecondary",
+      "RAGTA_getActiveEmployee",
+      {
+        'type!{urn:appian:plugin:executestoredprocedure:types}ProcedureInput'(name: "position", value: "Appian L1")
+      }
+    ),
+    local!AppianL2: executestoredprocedure(
+      "jdbc/AppianSecondary",
+      "RAGTA_getActiveEmployee",
+      {
+        'type!{urn:appian:plugin:executestoredprocedure:types}ProcedureInput'(name: "position", value: "Appian L2")
+      }
+    ),
+    local!AppianL3: executestoredprocedure(
+      "jdbc/AppianSecondary",
+      "RAGTA_getActiveEmployee",
+      {
+        'type!{urn:appian:plugin:executestoredprocedure:types}ProcedureInput'(name: "position", value: "Appian L3")
+      }
+    ),

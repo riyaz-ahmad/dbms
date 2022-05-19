@@ -1,0 +1,71 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:com:appian:types:DTA" targetNamespace="urn:com:appian:types:DTA">
+  <xsd:complexType name="DTA_DocumentTransferRequest">
+  <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">
+@Table(name="DTA_DocumentTransferRequest")
+			</xsd:appinfo>
+      <xsd:documentation><![CDATA[ contains structure of DTA_DocumentTransferRequest
+	  Table
+				]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+	
+		<xsd:element name="Id" type="xsd:int">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Id @GeneratedValue @Column(name="Id")</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		
+		
+		<xsd:element name="StatusId" type="xsd:int">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="StatusId")</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		
+		
+		<xsd:element name="RequestId" type="xsd:int">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="RequestId")</xsd:appinfo> 
+			</xsd:annotation>
+		</xsd:element>
+		
+		<xsd:element name="ReferenceCode" type="xsd:string">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="ReferenceCode" , length=255)</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		
+		
+		<xsd:element name="VersionId" type="xsd:int">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="VersionId")</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+			
+		
+		<xsd:element name="CreatedBy" type="xsd:string">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="CreatedBy", length=255)</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<xsd:element name="CreatedOn" type="xsd:dateTime">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="CreatedOn")</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		
+		
+		
+		<xsd:element name="IsActive" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:appinfo source="appian.jpa">@Column(name="IsActive")</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		
+		
+      
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,63 @@
+a!queryProcessAnalytics(
+  report: cons!RAGTA_TASKREPORTCONS,
+  contextProcessModels: cons!RAGTA_PROCESSMODELSCONS,
+  query: a!query(
+    /*filter: a!queryFilter(
+      field: "c1",
+      operator: "=",
+      value: {0,14},
+      applywhen: not(
+        isnull(ri!fv)
+      )
+    ),*/
+    logicalexpression: 
+
+      a!queryLogicalExpression(
+        operator: "AND",
+        filters: {
+            a!queryFilter(
+              field: "c1",
+              operator: "=",
+              value: {0,14}
+            )
+          },
+          logicalexpressions: a!queryLogicalExpression(
+            operator: "OR",
+            filters: {
+              if(isnull(ri!userId),
+              {},
+              a!queryFilter(
+                field: "c8",
+                operator: "=",
+                value: ri!userId
+              )),
+              if(
+                isnull(ri!userId),
+                {},
+                a!forEach(
+                  items: {
+                    rule!RAGTA_checkLoggedInUser(ri!userId),
+                  },
+                  expression: a!queryFilter(
+                    field: "c8",
+                    operator: "=",
+                    value: fv!item,
+                    applywhen: not(isnull(fv!item))
+                  )
+                )
+              )
+              
+              
+            }
+          )
+      ),
+    paginginfo: a!pagingInfo(
+      startIndex: 1,
+      batchSize: - 1,
+      /*sort: a!sortInfo(
+        ascending: false(),
+        field: "c3"
+      )*/
+    )
+  )
+).data
